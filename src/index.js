@@ -37,8 +37,6 @@ const MORSE_TABLE = {
     '-----':  '0',
 };
 
-MORSE_TABLE['**********'] = ' ';
-
 function decode(expr) {
 
     function digitizer(dotsAndDashes) {
@@ -63,7 +61,7 @@ function decode(expr) {
     }
 
     const MORSE_TABLE_DECODER = new ConvertObject(MORSE_TABLE);
-    //console.log(MORSE_TABLE_DECODER['0000001111']);
+    MORSE_TABLE_DECODER['**********'] = ' ';
 
     let  final = '';
     for (let i = 0; i < expr.length; i = i + 10) {
@@ -74,10 +72,7 @@ function decode(expr) {
 
     return final;
 }
-console.log( decode('00000011110000000010') );
 
-//console.log( decode('me') );
-
-// module.exports = {
-//     decode
-// }
+ module.exports = {
+     decode
+ }
